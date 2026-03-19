@@ -7,7 +7,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/menu_views.xml',
-        'views/status_student_views.xml',
         'views/grade_views.xml',
         'views/career_views.xml',
         'views/study_plan_views.xml',

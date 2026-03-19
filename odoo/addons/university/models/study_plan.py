@@ -7,3 +7,4 @@ class StudyPlan(models.Model):
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
     career_id = fields.Many2one('university.career', string='Career')
+    subject_study_plan_ids = fields.One2many('university.subject_study_plan', 'study_plan_id', string='Subjects')

@@ -19,9 +19,11 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="name"/>
-                    <field name="description"/>
-                    <field name="professor_ids" widget="many2many_tags"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="professor_ids" widget="many2many_tags"/>
+                    </group>
                 </sheet>
             </form>
         </field>

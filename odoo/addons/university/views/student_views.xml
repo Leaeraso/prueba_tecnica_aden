@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="university_student_tree" model="ir.ui.view">
+        <field name="name">university.student.tree</field>
+        <field name="model">university.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_number"/>
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="dni"/>
+                <field name="date_of_birth"/>
+                <field name="student_status_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="university_student_form" model="ir.ui.view">
+        <field name="name">university.student.form</field>
+        <field name="model">university.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="student_number"/>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="dni"/>
+                        <field name="date_of_birth"/>
+                        <field name="student_status_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Enrollments">
+                            <field name="enrollment_ids">
+                                <tree>
+                                    <field name="career_id"/>
+                                    <field name="study_plan_id"/>
+                                    <field name="enrollment_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action view -->
+    <record id="university_student_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">university.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- sequence -->
+    <record id="sequence_university_student" model="ir.sequence">
+        <field name="name">Student Number</field>
+        <field name="code">university.student</field>
+        <field name="number_next">50000</field>
+        <field name="padding">5</field>
+    </record>
+
+    <!-- menu item -->
+    <menuitem id="menu_university_student" name="Students" parent="menu_university_people" action="university_student_action" sequence="10" />
+</odoo>
