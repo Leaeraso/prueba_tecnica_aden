@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_university_root"
+              name="University"
+              sequence="10"/>
+
+    <menuitem id="menu_university_academic"
+              name="Academic"
+              parent="menu_university_root"
+              sequence="10"/>
+
+    <menuitem id="menu_university_people"
+              name="People"
+              parent="menu_university_root"
+              sequence="20"/>
+
+    <menuitem id="menu_university_config"
+              name="Configuration"
+              parent="menu_university_root"
+              sequence="30"/>
+
+</odoo>
