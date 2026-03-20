@@ -5,11 +5,13 @@
     'category': 'Education',
     'depends': ['base'],
     'data': [
+        'security/groups.xml',
         'security/ir.model.access.csv',
         'views/menu_views.xml',
         'views/grade_views.xml',
         'views/career_views.xml',
         'views/study_plan_views.xml',
+        'views/subject_study_plan_views.xml',
         'views/subject_views.xml',
         'views/professor_views.xml',
         'views/student_views.xml',

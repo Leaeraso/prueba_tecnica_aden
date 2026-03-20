@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="university_subject_study_plan_tree" model="ir.ui.view">
+        <field name="name">university.subject_study_plan.tree</field>
+        <field name="model">university.subject_study_plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subject_id"/>
+                <field name="grade_id"/>
+                <field name="study_plan_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="university_subject_study_plan_form" model="ir.ui.view">
+        <field name="name">university.subject_study_plan.form</field>
+        <field name="model">university.subject_study_plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="subject_id"/>
+                        <field name="grade_id"/>
+                        <field name="study_plan_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

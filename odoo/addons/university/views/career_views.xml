@@ -8,6 +8,7 @@
             <tree>
                 <field name="name"/>
                 <field name="description"/>
+                <field name="enrollment_count" string="Enrollments"/>
             </tree>
         </field>
     </record>

@@ -63,5 +63,5 @@
     </record>
 
     <!-- menu item -->
-    <menuitem id="menu_university_student" name="Students" parent="menu_university_people" action="university_student_action" sequence="10" />
+    <menuitem id="menu_university_student" name="Students" parent="menu_university_people" action="university_student_action" sequence="10" groups="university.group_university_academic"/>
 </odoo>

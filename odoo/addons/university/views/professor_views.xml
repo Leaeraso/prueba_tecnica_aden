@@ -55,5 +55,5 @@
     </record>
 
     <!-- menu item -->
-    <menuitem id="menu_university_professor" name="Professors" parent="menu_university_people" action="university_professor_action" sequence="10" />
+    <menuitem id="menu_university_professor" name="Professors" parent="menu_university_people" action="university_professor_action" sequence="10" groups="university.group_university_academic,university.group_university_finance"/>
 </odoo>
