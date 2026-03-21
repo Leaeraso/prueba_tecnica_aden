@@ -7,3 +7,5 @@ from . import subject_study_plan
 from . import professor
 from . import student
 from . import enrollment
+from . import classroom
+from . import enrollment_subject_classroom

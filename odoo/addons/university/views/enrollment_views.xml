@@ -29,10 +29,11 @@
                     </group>
                     <notebook>
                         <page string="Subjects">
-                            <field name="subject_study_plan_ids">
+                            <field name="enrollment_subject_classroom_ids">
                                 <tree>
-                                    <field name="subject_id"/>
-                                    <field name="grade_id"/>
+                                    <field name="subject_id" string="Subject"/>
+                                    <field name="grade_id" string="Grade"/>
+                                    <field name="classroom_id"/>
                                 </tree>
                             </field>
                         </page>
@@ -50,5 +51,5 @@
     </record>
 
     <!-- menu item -->
-    <menuitem id="menu_university_enrollment" name="Enrollments" parent="menu_university_academic" action="university_enrollment_action" sequence="10" />
+    <menuitem id="menu_university_enrollment" name="Enrollments" parent="menu_university_academic" action="university_enrollment_action" sequence="10" groups="university.group_university_academic"/>
 </odoo>
