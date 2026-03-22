@@ -1,0 +1,17 @@
+# Framework
+fastapi
+uvicorn[standard]
+# Database
+sqlalchemy
+# Configuration
+pydantic[email]
+pydantic-settings
+# Auth
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+# Testing
+pytest
+httpx
+# Env variables
+python-dotenv
