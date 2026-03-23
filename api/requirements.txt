@@ -1,0 +1,19 @@
+# Framework
+fastapi
+uvicorn[standard]
+# Database
+sqlalchemy
+psycopg2-binary
+# Configuration
+pydantic[email]
+pydantic-settings
+# Auth
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==4.0.1
+python-multipart
+# Testing
+pytest
+httpx
+# Env variables
+python-dotenv
