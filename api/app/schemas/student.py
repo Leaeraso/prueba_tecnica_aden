@@ -2,6 +2,7 @@ from pydantic import BaseModel, EmailStr
 from datetime import date
 from typing import Optional
 
+
 class StudentCreate(BaseModel):
     name: str
     last_name: str
@@ -9,7 +10,14 @@ class StudentCreate(BaseModel):
     password: str
     dni: Optional[int] = None
     date_of_birth: Optional[date] = None
-    # student_number y status_id los asigna el servicio automáticamente
+
+
+class StudentStatusResponse(BaseModel):
+    id: int
+    name: str
+
+    model_config = {"from_attributes": True}
+
 
 class StudentResponse(BaseModel):
     id: int
@@ -17,6 +25,6 @@ class StudentResponse(BaseModel):
     name: str
     last_name: str
     email: str
-    status_id: int
+    status: StudentStatusResponse
 
     model_config = {"from_attributes": True}

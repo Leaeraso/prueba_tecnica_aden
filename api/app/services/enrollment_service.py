@@ -1,4 +1,3 @@
-from fastapi import HTTPException, status
 from datetime import date
 from typing import List
 
@@ -10,7 +9,7 @@ from app.repositories.classroom import ClassroomRepository
 from app.schemas.enrollment import EnrollmentCreate, EnrollmentResponse, SubjectEnrollmentResponse, SubjectEnrollmentCreate
 from app.models.enrollment import Enrollment
 from app.models.enrollment_subject_classroom import EnrollmentSubjectClassroom
-from app.core.exceptions import CourseFullError, CourseNotFoundError, AlreadyEnrolledError, StudentNotFoundError, CareerNotFoundError, StudyPlanNotFoundError, EnrollmentNotFoundError
+from app.core.exceptions import CourseFullError, CourseNotFoundError, AlreadyEnrolledError, StudentNotFoundError, CareerNotFoundError, StudyPlanNotFoundError, EnrollmentNotFoundError, StudyPlanMismatchCareerError
 
 class EnrollmentService:
     def __init__(
@@ -39,10 +38,7 @@ class EnrollmentService:
         if not study_plan:
             raise StudyPlanNotFoundError()
         if study_plan.career_id != career.id:
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Study plan and career do not match"
-            )
+            raise StudyPlanMismatchCareerError()
         
         existing_enrollment = self.repository.get_by_student_career_study_plan(data.student_id, data.career_id, data.study_plan_id)
         if existing_enrollment:
@@ -66,7 +62,7 @@ class EnrollmentService:
         if not classroom:
             raise CourseNotFoundError()
         
-        current_count = self.repository.get_subject_classroom_count(data.classroom_id)
+        current_count = self.repository.get_subject_classroom_count(data.classroom_id, data.subject_study_plan_id)
         if current_count >= classroom.capacity:
             raise CourseFullError()
         

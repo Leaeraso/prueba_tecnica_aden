@@ -1,9 +1,10 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from typing import Optional
 
 from app.models.student import Student
 from app.repositories.base import BaseRepository
 from app.core.config import settings
+
 
 class StudentRepository(BaseRepository[Student]):
     def __init__(self, db: Session):
@@ -15,4 +16,13 @@ class StudentRepository(BaseRepository[Student]):
     def get_next_number(self) -> int:
         last = self.db.query(Student).order_by(Student.student_number.desc()).first()
         return last.student_number + 1 if last else settings.student_number_start
-    
+
+    def save(self, instance: Student) -> Student:
+        self.db.add(instance)
+        self.db.commit()
+        return (
+            self.db.query(Student)
+            .options(joinedload(Student.status))
+            .filter(Student.id == instance.id)
+            .first()
+        )

@@ -55,3 +55,10 @@ class StudyPlanNotFoundError(HTTPException):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Study plan not found",
         )
+    
+class StudyPlanMismatchCareerError(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Study plan and career do not match",
+        )
