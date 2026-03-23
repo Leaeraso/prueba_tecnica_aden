@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="university_study_plan_tree" model="ir.ui.view">
+        <field name="name">university.study_plan.tree</field>
+        <field name="model">university.study_plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="career_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="university_study_plan_form" model="ir.ui.view">
+        <field name="name">university.study_plan.form</field>
+        <field name="model">university.study_plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="career_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Subjects">
+                            <field name="subject_study_plan_ids">
+                                <tree>
+                                    <field name="subject_id"/>
+                                    <field name="grade_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action view -->
+    <record id="university_study_plan_action" model="ir.actions.act_window">
+        <field name="name">Study Plans</field>
+        <field name="res_model">university.study_plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menu item -->
+    <menuitem id="menu_university_study_plan" name="Study Plans" parent="menu_university_academic" action="university_study_plan_action" sequence="10" />
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="university_subject_tree" model="ir.ui.view">
+        <field name="name">university.subject.tree</field>
+        <field name="model">university.subject</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="enrollment_count" string="Enrollments"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="university_subject_form" model="ir.ui.view">
+        <field name="name">university.subject.form</field>
+        <field name="model">university.subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="professor_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action view -->
+    <record id="university_subject_action" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="res_model">university.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menu item -->
+    <menuitem id="menu_university_subject" name="Subjects" parent="menu_university_academic" action="university_subject_action" sequence="10" />
+</odoo>
